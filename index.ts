@@ -167,3 +167,26 @@ class BarBouncy {
 		this.curr.startUpdating(cb)
 	}
 }
+
+class Renderer {
+	
+	bb : BarBouncy = new BarBouncy()
+	animator : Animator = new Animator()
+
+	render(context : CanvasRenderingContext2D) {
+		this.bb.draw(context)
+	}	
+
+	handleTap(cb : Function) {
+		this.bb.startUpdating(() => {
+			this.animator.start(() => {
+				cb()
+				this.bb.update(() => {
+					this.animator.stop()
+					cb()
+				})
+			})
+		})	
+	}
+
+}
