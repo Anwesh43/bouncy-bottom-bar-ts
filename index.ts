@@ -3,7 +3,7 @@ const h : number = window.innerHeight
 const scGap : number = 0.02 
 const strokeFactor : number = 90
 const sizeFactor : number = 2.9 
-const delay : number = 90
+const delay : number = 20
 const foreColor : string = "#673AB7"
 const backColor : string = "#BDBDBD"
 const nodes : number = 5
@@ -116,7 +116,7 @@ class BBNode {
 	next : BBNode
 
 	constructor(private i : number) {
-
+		this.addNeighbor()
 
 	}
 
