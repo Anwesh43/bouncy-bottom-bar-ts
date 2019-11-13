@@ -6,6 +6,7 @@ const sizeFactor : number = 2.9
 const delay : number = 90
 const foreColor : string = "#673AB7"
 const backColor : string = "#BDBDBD"
+const nodes : number = 5
 
 class Stage {
 		
@@ -37,3 +38,18 @@ class ScaleUtil {
 		return Math.sin(scale * Math.PI)
 	}
 }
+
+class DrawingUtil {
+	
+	static drawBBNode(context : CanvasRenderingContext2D,  i : number, scale : number) {
+		const gap : number = w / (nodes)
+		const sf : number = ScaleUtil.sinify(scale)
+		const bouncyY : number = (h / 2) * sf
+		context.fillStyle = foreColor 
+		context.save()
+		context.translate(i * gap, h)
+		context.fillRect(0, -gap - bouncyY, gap, gap + bouncyY)
+		context.restore()
+	}
+}
+
