@@ -26,7 +26,14 @@ class Stage {
 
 	handleTap() {
 		this.canvas.onmousedown = () => {
-			
+
 		}
+	}
+}
+
+class ScaleUtil {
+	
+	static sinify(scale : number) : number {
+		return Math.sin(scale * Math.PI)
 	}
 }
